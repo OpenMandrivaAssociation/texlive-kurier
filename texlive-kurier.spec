@@ -1,3 +1,9 @@
+# revision 19612
+# category Package
+# catalog-ctan /fonts/kurier
+# catalog-date 2010-08-03 20:49:06 +0200
+# catalog-license gfsl
+# catalog-version 0.995b
 Name:		texlive-kurier
 Version:	0.995b
 Release:	1
@@ -658,6 +664,7 @@ supporting macros and files defining fonts for LaTeX.
 %doc %{_texmfdistdir}/doc/fonts/kurier/kurier-mathtest.tex
 %doc %{_texmfdistdir}/doc/fonts/kurier/kurier-table.tex
 %doc %{_texmfdistdir}/doc/fonts/kurier/manifest.txt
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -668,3 +675,5 @@ supporting macros and files defining fonts for LaTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
