@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Kurier is a two-element sans-serif typeface. It was designed
@@ -34,20 +32,12 @@ T2 (abc), and OT2--Cyrillic, T5 (Vietnamese), OT4, QX, texansi
 and--nonstandard (IL2 for the Czech fonts), as well as
 supporting macros and files defining fonts for LaTeX.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -665,7 +655,6 @@ supporting macros and files defining fonts for LaTeX.
 %doc %{_texmfdistdir}/doc/fonts/kurier/kurier-mathtest.tex
 %doc %{_texmfdistdir}/doc/fonts/kurier/kurier-table.tex
 %doc %{_texmfdistdir}/doc/fonts/kurier/manifest.txt
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -676,5 +665,3 @@ supporting macros and files defining fonts for LaTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
