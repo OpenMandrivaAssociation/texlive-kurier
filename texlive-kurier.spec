@@ -6,7 +6,7 @@
 # catalog-version 0.995b
 Name:		texlive-kurier
 Version:	0.995b
-Release:	7
+Release:	8
 Summary:	A two-element sans-serif typeface
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/kurier
