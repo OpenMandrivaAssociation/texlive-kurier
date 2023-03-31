@@ -1,6 +1,6 @@
 Name:		texlive-kurier
 Version:	19612
-Release:	1
+Release:	2
 Summary:	A two-element sans-serif typeface
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/kurier
